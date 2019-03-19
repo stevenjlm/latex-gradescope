@@ -1,0 +1,158 @@
+%% This is a LaTeX exam template designed to work easily with GradeScope
+\documentclass[twoside]{article}
+% ------------------------------------------------------------ Packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{verbatimbox}
+\usepackage{tikz}
+\usepackage[usestackEOL]{stackengine}
+
+\usepackage{listings}
+\lstset
+{ %Formatting for code
+    language=python,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+% ------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[top=.6in,left=0.25in, right=0.25in, bottom= 0.25in]{geometry}
+
+% ------------------------------------------------------------ Page header
+\usepackage{fancyhdr}
+\setlength{\headheight}{2in}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+\fancyhead[LO]{
+\begin{tabular}{m{13em} m{30em} m{12em}}
+        \includegraphics[width=13em]{scis-odd.pdf}
+    &
+        \rule{0pt}{5ex} % Adds vertical space before table inside table
+            \begin{tabular}{|lp{2in}|}
+            \hline
+            \rule{0pt}{5ex} \textbf{\Large{Name:}} & \\ [10ex]
+            \hline
+            \rule{0pt}{5ex}\textbf{\Large{Perm Number:}} & \\ [11ex]
+            \hline
+            \end{tabular}
+    &
+        \makecell{ % \makecell is used to ensure proper spacing between lines
+            {\fontsize{120}{140}\selectfont \bf{\thepage}} \\ \\
+            {\fontsize{50}{60}\selectfont \bf{e01}} \\ \\
+            {\fontsize{20}{30}\selectfont CS123 S19}
+            } \\
+            %    ^ Sets vertical space of the table
+\end{tabular}
+}
+\fancyhead[LE]{
+\begin{tabular}{m{13em} m{30em} m{12em}}
+        \makecell{ % \makecell is used to ensure proper spacing between lines
+            {\fontsize{120}{140}\selectfont \bf{\thepage}} \\ \\
+            {\fontsize{50}{60}\selectfont \bf{e01}} \\ \\
+            {\fontsize{20}{30}\selectfont CS123 S19}
+            }
+        %    ^ Sets vertical space of the table
+    &
+        \rule{0pt}{5ex} % Adds vertical space before table inside table
+            \begin{tabular}{|lp{2in}|}
+            \hline
+            \rule{0pt}{5ex} \textbf{\Large{Name:}} & \\ [10ex]
+            \hline
+            \rule{0pt}{5ex}\textbf{\Large{Perm Number:}} & \\ [11ex]
+            \hline
+            \end{tabular}
+    &
+        \includegraphics[width=13em]{scis-even.pdf}
+    \\
+\end{tabular}
+}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{ %
+  \fancyhf{} % remove everything
+  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\newcommand{\answerbox}[3]{ % usage: \answerbox{Text:}{width}{height}
+    \addvbuffer[12pt 8pt]{ % adds vertical/horizontal space on top of box
+    \begin{tabular}{|l p{#2}|}
+        \hline
+            #1 & \\ [#3]
+        \hline
+    \end{tabular}
+    } 
+}
+\newcommand{\codelinebox}[1]{ % usage eg: \codelinebox{x =}
+    \addvbuffer[0pt]{ % adds vertical/horizontal space on top of box
+    \hspace{1em}
+    \begin{tabular}{|l p{5in}|}
+        \hline
+                     & \\ [.10in]
+            {\tt #1} & \\ [.25in]
+        \hline
+    \end{tabular}
+    }
+}
+\newcommand{\plainbox}[2]{ % usage: \plainbox{width}{height} 
+    \begin{tabular}{|p{#1}|}
+        \hline \\ [#2] \hline
+    \end{tabular}
+}
+\newcommand{\squarebox}[1]{ % usage eg: \squarebox{.25in} Write the eigenvalue here.
+    \plainbox{#1}{#1}
+}
+\newcommand{\littlebox}{ % usage eg: (a) \littlebox Write your choice (1-5) here. (Also for T/F.)
+    \squarebox{.15in}
+}
+\newcommand{\truefalse}[2]{ % usage eg: \truefalse{a}{The moon is made of blue cheese.}
+    \par\medskip
+    \begin{minipage}[c]{1in}
+    \hfill (#1) \littlebox
+    \end{minipage}
+    \begin{minipage}[c]{6in}
+    #2
+    \end{minipage}
+}
+
+% ------------------------------------------------------------
+\begin{document}
+
+\section*{Exam: e01 The Exam}
+\begin{itemize}
+    \item Use a \textbf{DARK} pen or pencil, 
+          and write \textbf{INSIDE} the answer boxes provided. 
+    \item Write your name and perm number \textbf{CLEARLY} at the 
+          top of \textbf{EVERY} page, inside the boxes provided.
+    \item No collaboration allowed, no electronic devices, no messanger pigeons.
+    \item Please locate the nearest emergency exit. In some cases, your nearest exit may be behind you.      
+\end{itemize}
+
+\section*{Exam Questions:}
+\begin{enumerate}
+
+\par\bigskip
+\input{q_favorite}
+
+\par\bigskip
+\input{q_zombie}
+
+\clearpage
+
+\par\bigskip
+\input{q_truefalse}
+
+\end{enumerate}
+\end{document}
